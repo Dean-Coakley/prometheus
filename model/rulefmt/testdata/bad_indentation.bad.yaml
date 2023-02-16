@@ -1,0 +1,6 @@
+groups:
+  - rules:
+      - record: "hola"
+        expr: 1
+        labels:
+          instance: "localhost"

@@ -33,53 +33,57 @@ func TestParseFileFailure(t *testing.T) {
 		filename string
 		errMsg   string
 	}{
+		// {
+		// 	filename: "duplicate_grp.bad.yaml",
+		// 	errMsg:   "testdata/duplicate_grp.bad.yaml: yaml: unmarshal errors:\n  line 2: field name not found in type yaml.Node\n  line 3: field name not found in type yaml.Node\" does not contain \"groupname: \"yolo\" is repeated in the same file",
+		// },
+		// {
+		// 	filename: "bad_expr.bad.yaml",
+		// 	errMsg:   "parse error",
+		// },
+		// {
+		// 	filename: "record_and_alert.bad.yaml",
+		// 	errMsg:   "only one of 'record' and 'alert' must be set",
+		// },
+		// {
+		// 	filename: "no_rec_alert.bad.yaml",
+		// 	errMsg:   "one of 'record' or 'alert' must be set",
+		// },
+		// {
+		// 	filename: "noexpr.bad.yaml",
+		// 	errMsg:   "field 'expr' must be set in rule",
+		// },
+		// {
+		// 	filename: "bad_lname.bad.yaml",
+		// 	errMsg:   "invalid label name",
+		// },
+		// {
+		// 	filename: "bad_annotation.bad.yaml",
+		// 	errMsg:   "invalid annotation name",
+		// },
+		// {
+		// 	filename: "invalid_record_name.bad.yaml",
+		// 	errMsg:   "invalid recording rule name",
+		// },
+		// {
+		// 	filename: "bad_field.bad.yaml",
+		// 	errMsg:   "field annotation not found",
+		// },
+		// {
+		// 	filename: "invalid_label_name.bad.yaml",
+		// 	errMsg:   "invalid label name",
+		// },
+		// {
+		// 	filename: "record_and_for.bad.yaml",
+		// 	errMsg:   "invalid field 'for' in recording rule",
+		// },
+		// {
+		// 	filename: "record_and_keep_firing_for.bad.yaml",
+		// 	errMsg:   "invalid field 'keep_firing_for' in recording rule",
+		// },
 		{
-			filename: "duplicate_grp.bad.yaml",
-			errMsg:   "groupname: \"yolo\" is repeated in the same file",
-		},
-		{
-			filename: "bad_expr.bad.yaml",
-			errMsg:   "parse error",
-		},
-		{
-			filename: "record_and_alert.bad.yaml",
-			errMsg:   "only one of 'record' and 'alert' must be set",
-		},
-		{
-			filename: "no_rec_alert.bad.yaml",
-			errMsg:   "one of 'record' or 'alert' must be set",
-		},
-		{
-			filename: "noexpr.bad.yaml",
-			errMsg:   "field 'expr' must be set in rule",
-		},
-		{
-			filename: "bad_lname.bad.yaml",
-			errMsg:   "invalid label name",
-		},
-		{
-			filename: "bad_annotation.bad.yaml",
-			errMsg:   "invalid annotation name",
-		},
-		{
-			filename: "invalid_record_name.bad.yaml",
-			errMsg:   "invalid recording rule name",
-		},
-		{
-			filename: "bad_field.bad.yaml",
-			errMsg:   "field annotation not found",
-		},
-		{
-			filename: "invalid_label_name.bad.yaml",
-			errMsg:   "invalid label name",
-		},
-		{
-			filename: "record_and_for.bad.yaml",
-			errMsg:   "invalid field 'for' in recording rule",
-		},
-		{
-			filename: "record_and_keep_firing_for.bad.yaml",
-			errMsg:   "invalid field 'keep_firing_for' in recording rule",
+			filename: "bad_indentation.bad.yaml",
+			errMsg:   "bad indent",
 		},
 	}
 

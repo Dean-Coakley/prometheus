@@ -14,16 +14,14 @@
 package rulefmt
 
 import (
-	"bytes"
 	"context"
-	"errors"
 	"fmt"
-	"io"
 	"os"
 	"strings"
 	"time"
 
 	"github.com/prometheus/common/model"
+	twoyaml "gopkg.in/yaml.v2"
 	"gopkg.in/yaml.v3"
 
 	"github.com/prometheus/prometheus/model/timestamp"
@@ -310,14 +308,20 @@ func Parse(content []byte) (*RuleGroups, []error) {
 		errs   []error
 	)
 
-	decoder := yaml.NewDecoder(bytes.NewReader(content))
-	decoder.KnownFields(true)
-	err := decoder.Decode(&groups)
-	// Ignore io.EOF which happens with empty input.
-	if err != nil && !errors.Is(err, io.EOF) {
+	// decoder := yaml.NewDecoder(bytes.NewReader(content))
+	// decoder.KnownFields(true)
+	// err := decoder.Decode(&groups)
+	// // Ignore io.EOF which happens with empty input.
+	// if err != nil && !errors.Is(err, io.EOF) {
+	// 	errs = append(errs, err)
+	// }
+
+	err := twoyaml.UnmarshalStrict(content, &groups)
+	if err != nil {
 		errs = append(errs, err)
 	}
-	err = yaml.Unmarshal(content, &node)
+
+	err = twoyaml.UnmarshalStrict(content, &node)
 	if err != nil {
 		errs = append(errs, err)
 	}
